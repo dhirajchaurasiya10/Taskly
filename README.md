@@ -17,7 +17,7 @@ samples, guidance on mobile development, and a full API reference.
 
 
 
-Snap of the app
+Snap of the app <br>
 <img src="https://github.com/dhirajchaurasiya10/Taskly/assets/106879418/3726704c-0478-426b-8478-e8fcb26397cd" width="350">
 
 
