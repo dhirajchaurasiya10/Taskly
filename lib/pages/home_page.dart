@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:taskly/models/task.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -50,24 +51,29 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _taskslist() {
-    return ListView(
-      children: [
-        ListTile(
-          title: const Text(
-            "Do Laundry!",
+    List tasks = _box!.values.toList();
+    return ListView.builder(
+      itemCount: tasks.length,
+      itemBuilder: (BuildContext _context, int _index) {
+        var task = Tassk.fromMap(tasks[_index]);
+        return ListTile(
+          title: Text(
+            task.content,
             style: TextStyle(
-              decoration: TextDecoration.lineThrough,
+              decoration: task.done ? TextDecoration.lineThrough : null,
             ),
           ),
           subtitle: Text(
-            DateTime.now().toString(),
+            task.timestamp.toString(),
           ),
           trailing: Icon(
-            Icons.check_box_outline_blank,
+            task.done
+                ? Icons.check_box_outlined
+                : Icons.check_box_outline_blank,
             color: Colors.red,
           ),
-        )
-      ],
+        );
+      },
     );
   }
 
@@ -87,7 +93,20 @@ class _HomePageState extends State<HomePage> {
         return AlertDialog(
           title: const Text("Add new Task"),
           content: TextField(
-            onSubmitted: (_value) {},
+            onSubmitted: (_) {
+              if (_newtaskcontent != null) {
+                var _task = Tassk(
+                  content: _newtaskcontent!,
+                  done: false,
+                  timestamp: DateTime.now(),
+                );
+                _box!.add(_task.toMap());
+                setState(() {
+                  _newtaskcontent = null;
+                  Navigator.pop(context);
+                });
+              }
+            },
             onChanged: (_value) {
               setState(() {
                 _newtaskcontent = _value;
