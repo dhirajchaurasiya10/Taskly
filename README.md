@@ -13,15 +13,15 @@ A few resources to get you started if this is your first Flutter project:
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+samples, guidance on mobile development, and a full API reference.<br><br>
 
 
 -To run the project:<br>
- <p>Clone the project
-  Before runnning the application, run the following command:
-    flutter pub get
-  Then run the project with the following command:
-    flutter run </p>
+ <ul> Clone the project</ul><br>
+  <ul>Before runnning the application, run the following command: </ul><br>
+    flutter pub get<br>
+  <ul>Then run the project with the following command:</ul><br>
+    flutter run <br>
 
 
 
