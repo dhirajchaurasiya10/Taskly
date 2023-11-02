@@ -16,12 +16,12 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
--To run the project:
-  Clone the project
+-To run the project:<br>
+ <p>Clone the project
   Before runnning the application, run the following command:
     flutter pub get
   Then run the project with the following command:
-    flutter run
+    flutter run </p>
 
 
 
